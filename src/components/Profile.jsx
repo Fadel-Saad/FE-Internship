@@ -27,7 +27,7 @@ function Profile() {
             component="img"
             src="./profile-man.jpg"
             // it changes size in response to screen size
-            sx={{ width: { xs: 400, sm: 450, md: 500 }, objectFit: "cover" }}
+            sx={{ width: { xs: 340, sm: 400, md: 500 }, objectFit: "cover" }}
           />
         </Grid>
 
@@ -48,7 +48,7 @@ function Profile() {
           <Typography
             variant="h6"
             color="text.secondary"
-            sx={{ lineHeight: 1.5, maxWidth: { xs: "65%", md: "80%" } }}
+            sx={{ lineHeight: 1.5, maxWidth: { xs: "70%", sm: "60%", md: "80%" } }}
           >
             Web developer and designer passionate about creating clean, user-friendly
             interfaces. Currently working at Tech Corp and learning new front-end

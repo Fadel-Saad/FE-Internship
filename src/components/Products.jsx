@@ -93,7 +93,7 @@ function Products() {
   // console.log(filteredProducts);
 
   return (
-    <Container maxWidth="lg" sx={{ py: 4, px: { xs: 12, md: 6 }, mb: 5 }}>
+    <Container maxWidth="lg" sx={{ py: 4, px: { xs: 5, sm: 8 }, mb: 5 }}>
       <Box sx={{ mb: 4 }}>
         <Typography variant="h4" component="h1" sx={{ mb: 8, textAlign: "center" }}>
           Products
