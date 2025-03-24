@@ -48,7 +48,12 @@ function Profile() {
           <Typography
             variant="h6"
             color="text.secondary"
-            sx={{ lineHeight: 1.5, maxWidth: { xs: "70%", sm: "60%", md: "80%" } }}
+            // sx={{ lineHeight: 1.5, maxWidth: { xs: "70%", sm: "60%", md: "80%" } }}
+            sx={{
+              lineHeight: 1.5,
+              mx: 4,
+              maxWidth: { xs: "80%", sm: "50%", md: "80%" },
+            }}
           >
             Web developer and designer passionate about creating clean, user-friendly
             interfaces. Currently working at Tech Corp and learning new front-end
