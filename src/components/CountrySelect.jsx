@@ -7,7 +7,7 @@ export default function CountrySelect() {
   return (
     <Autocomplete
       id="country-select"
-      sx={{ width: 300 }}
+      sx={{ width: "fit-content" }}
       options={countries}
       autoHighlight
       getOptionLabel={(option) => option.label}
@@ -33,6 +33,7 @@ export default function CountrySelect() {
       }}
       renderInput={(params) => (
         <TextField
+          sx={{ width: "320px" }}
           {...params}
           label="Choose a country"
           slotProps={{

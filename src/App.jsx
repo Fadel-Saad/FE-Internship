@@ -11,7 +11,7 @@ function App() {
     <>
       <Box
         sx={{
-          height: "100vh",
+          minHeight: "100vh",
           display: "flex",
           flexDirection: "column",
           alignContent: "center",
@@ -19,7 +19,7 @@ function App() {
       >
         <Navbar />
         <Box
-          component="Main"
+          component="main"
           sx={{
             my: 10,
             display: "flex",

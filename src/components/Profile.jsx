@@ -1,43 +1,61 @@
 import Box from "@mui/material/Box";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
-import { CardMedia } from "@mui/material";
+import Grid from "@mui/material/Grid2";
 
 function Profile() {
   return (
     <Box
       id="Profile"
       sx={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        gap: 2,
-        minHeight: "60vh",
-        width: "50%",
-        mb: 10,
+        px: 5,
+        mb: { xs: 15, sm: 20 },
+        maxWidth: "lg",
       }}
     >
-      <Typography variant="h4"> Profile </Typography>
-
-      <Box
-        component="img"
-        src="./profile-man.jpg"
-        sx={{ width: 500, objectFit: "cover" }}
-      />
-
-      <Typography variant="span"> John Doe </Typography>
-
-      <Typography
-        variant="body1"
-        color="text.secondary"
-        sx={{ lineHeight: 1.5, maxWidth: "50%" }}
-      >
-        Web developer and designer passionate about creating clean, user-friendly
-        interfaces. Currently working at Tech Corp and learning new front-end
-        technologies.
+      <Typography variant="h4" sx={{ textAlign: "center", mb: 10 }}>
+        Profile
       </Typography>
+
+      {/* container of image + text that changes from row to column depending on screen size */}
+      <Grid container>
+        {/* Image section */}
+        <Grid
+          size={{ xs: 12, md: 6 }}
+          sx={{ textAlign: "center", mb: { xs: 3, md: 0 } }}
+        >
+          <Box
+            component="img"
+            src="./profile-man.jpg"
+            // it changes size in response to screen size
+            sx={{ width: { xs: 400, sm: 450, md: 500 }, objectFit: "cover" }}
+          />
+        </Grid>
+
+        {/* Text section containing name and description */}
+        <Grid
+          size={{ xs: 12, md: 6 }}
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Typography variant="h4" sx={{ mb: 3 }}>
+            John Doe
+          </Typography>
+
+          <Typography
+            variant="h6"
+            color="text.secondary"
+            sx={{ lineHeight: 1.5, maxWidth: { xs: "65%", md: "80%" } }}
+          >
+            Web developer and designer passionate about creating clean, user-friendly
+            interfaces. Currently working at Tech Corp and learning new front-end
+            technologies.
+          </Typography>
+        </Grid>
+      </Grid>
     </Box>
   );
 }
