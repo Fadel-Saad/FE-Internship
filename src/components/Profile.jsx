@@ -48,7 +48,6 @@ function Profile() {
           <Typography
             variant="h6"
             color="text.secondary"
-            // sx={{ lineHeight: 1.5, maxWidth: { xs: "70%", sm: "60%", md: "80%" } }}
             sx={{
               lineHeight: 1.5,
               mx: 4,
