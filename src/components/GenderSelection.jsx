@@ -5,12 +5,13 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 
+// Used in Form component
 export default function GenderSelection() {
   const [value, setValue] = useState("male");
 
-  const handleChange = (event) => {
+  function handleChange(event) {
     setValue(event.target.value);
-  };
+  }
 
   return (
     <FormControl>
@@ -22,8 +23,8 @@ export default function GenderSelection() {
         value={value}
         onChange={handleChange}
       >
-        <FormControlLabel value="female" control={<Radio />} label="Male" />
-        <FormControlLabel value="male" control={<Radio />} label="Female" />
+        <FormControlLabel value="male" control={<Radio />} label="Male" />
+        <FormControlLabel value="female" control={<Radio />} label="Female" />
       </RadioGroup>
     </FormControl>
   );

@@ -4,8 +4,8 @@ import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-// import { Container } from "@mui/material/Container";
 
+// Used in Form component
 export default function BasicDatePicker() {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -14,11 +14,6 @@ export default function BasicDatePicker() {
           label="Pick a date"
           slotProps={{
             textField: { sx: { width: "320px" } },
-            layout: {
-              sx: {
-                pt: 0,
-              },
-            },
           }}
         />
       </Box>

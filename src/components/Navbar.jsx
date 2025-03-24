@@ -13,36 +13,19 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 
+// Width of mobile side bar that can be customized easily
 const drawerWidth = 240;
+// Array of nav items that are later mapped in both desktop and mobile sidebars
 const navItems = ["Home", "Products", "About", "Contact"];
 
-function Navbar(props) {
-  const { window } = props;
+function Navbar() {
+  // State to keep track if in mobile view or not
   const [mobileView, setMobileView] = useState(false);
 
-  const handleDrawerToggle = () => {
+  // Simple event handler fn for the state above that negates previous state
+  function handleDrawerToggle() {
     setMobileView((prevState) => !prevState);
-  };
-
-  const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
-        MUI
-      </Typography>
-      <Divider />
-      <List>
-        {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: "center" }}>
-              <ListItemText primary={item} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-    </Box>
-  );
-
-  const container = window !== undefined ? () => window().document.body : undefined;
+  }
 
   return (
     <Box sx={{ display: "flex" }}>
@@ -64,6 +47,8 @@ function Navbar(props) {
           >
             MUI
           </Typography>
+
+          {/*Setting the display to none in mobile view so that it doesn't show */}
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {navItems.map((item) => (
               <Button key={item} sx={{ color: "#fff" }}>
@@ -73,9 +58,11 @@ function Navbar(props) {
           </Box>
         </Toolbar>
       </AppBar>
+
+      {/* Mobile side bar that shows only if the mobileView state is true */}
+      {/* it uses the built in open prop of the drawer component from MUI */}
       <nav>
         <Drawer
-          container={container}
           variant="temporary"
           open={mobileView}
           onClose={handleDrawerToggle}
@@ -87,7 +74,21 @@ function Navbar(props) {
             "& .MuiDrawer-paper": { boxSizing: "border-box", width: drawerWidth },
           }}
         >
-          {drawer}
+          <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
+            <Typography variant="h6" sx={{ my: 2 }}>
+              MUI
+            </Typography>
+            <Divider />
+            <List>
+              {navItems.map((item) => (
+                <ListItem key={item} disablePadding>
+                  <ListItemButton sx={{ textAlign: "center" }}>
+                    <ListItemText primary={item} />
+                  </ListItemButton>
+                </ListItem>
+              ))}
+            </List>
+          </Box>
         </Drawer>
       </nav>
       <Toolbar />

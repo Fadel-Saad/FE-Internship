@@ -28,8 +28,8 @@ function App() {
           }}
         >
           <Profile />
-          <Form />
           <Products />
+          <Form />
         </Box>
         <Footer />
       </Box>

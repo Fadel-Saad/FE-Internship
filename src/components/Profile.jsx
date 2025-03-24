@@ -8,7 +8,7 @@ function Profile() {
       id="Profile"
       sx={{
         px: 5,
-        mb: { xs: 15, sm: 20 },
+        mb: 10,
         maxWidth: "lg",
       }}
     >

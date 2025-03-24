@@ -15,14 +15,17 @@ function Form() {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        mb: 15,
+        width: { xs: "320px", sm: "auto" },
+        my: 10,
         mx: 5,
       }}
     >
-      <Typography variant="h4" sx={{ mb: 10 }}>
+      <Typography variant="h4" sx={{ mb: 8 }}>
         Form
       </Typography>
 
+      {/* Used Grid components for responsive view. 2 fields per row on desktop */}
+      {/* and 1 field per row on mobile view */}
       <Grid container columnSpacing={5} rowSpacing={3} sx={{ maxWidth: "700px" }}>
         <Grid size={{ xs: 12, sm: 6 }} sx={{ textAlign: "center" }}>
           <TextField label="Email" required fullWidth sx={{ width: "320px" }} />
@@ -44,7 +47,10 @@ function Form() {
         </Grid>
         <Grid
           size={{ xs: 12 }}
-          sx={{ width: { xs: "300px", sm: "600px" }, ml: { xs: 14, sm: 1 } }}
+          sx={{
+            mx: { xs: "auto", sm: 1 },
+            textAlign: { xs: "center", sm: "start" },
+          }}
         >
           <GenderSelection />
         </Grid>

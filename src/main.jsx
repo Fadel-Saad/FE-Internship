@@ -5,6 +5,7 @@ import App from "./App.jsx";
 import CssBaseline from "@mui/material/CssBaseline";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
+// Changing default breakpoints of MUI
 const theme = createTheme({
   breakpoints: {
     values: {

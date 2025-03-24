@@ -1,19 +1,18 @@
 import React, { useState } from "react";
 import Grid from "@mui/material/Grid2";
-import {
-  Container,
-  Card,
-  CardContent,
-  CardMedia,
-  Typography,
-  TextField,
-  Select,
-  MenuItem,
-  FormControl,
-  InputLabel,
-  Box,
-} from "@mui/material";
+import Container from "@mui/material/Container";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
+import TextField from "@mui/material/TextField";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import InputLabel from "@mui/material/InputLabel";
+import Box from "@mui/material/Box";
 
+// products array with each containig their respective info
 const products = [
   {
     id: 1,
@@ -64,29 +63,43 @@ const products = [
       "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=500&q=80",
   },
 ];
-
-const categories = ["All", ...new Set(products.map((product) => product.category))];
+// Array of product categories
+const categories = ["All", "Home", "Fashion", "Electronics"];
 
 function Products() {
+  // States for user search field and selected category
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
 
-  const filteredProducts = products.filter((product) => {
+  // a function that filters products based on categories or search field
+  function filterProducts(product) {
+    // checks if either the title or the description includes the search term of user
     const matchesSearch =
       product.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       product.description.toLowerCase().includes(searchTerm.toLowerCase());
+
+    // checks if All categories or certain category is selected by user
     const matchesCategory =
       selectedCategory === "All" || product.category === selectedCategory;
+    // console.log(matchesSearch && matchesCategory);
+
+    // returns true if both are true only.
     return matchesSearch && matchesCategory;
-  });
+  }
+
+  // Call filter method on every product to check if it return true or false. if true,
+  // it is saved inside the filtered products array.
+  const filteredProducts = products.filter(filterProducts);
+  // console.log(filteredProducts);
 
   return (
-    <Container maxWidth="lg" sx={{ py: 4 }}>
+    <Container maxWidth="lg" sx={{ py: 4, px: { xs: 12, md: 6 }, mb: 5 }}>
       <Box sx={{ mb: 4 }}>
         <Typography variant="h4" component="h1" sx={{ mb: 8, textAlign: "center" }}>
           Products
         </Typography>
         <Grid container spacing={2}>
+          {/* Search Field */}
           <Grid size={{ xs: 12, md: 6 }}>
             <TextField
               fullWidth
@@ -96,6 +109,8 @@ function Products() {
               onChange={(e) => setSearchTerm(e.target.value)}
             />
           </Grid>
+
+          {/* Category selection field */}
           <Grid size={{ xs: 12, md: 6 }}>
             <FormControl fullWidth>
               <InputLabel>Category</InputLabel>
@@ -115,6 +130,8 @@ function Products() {
         </Grid>
       </Box>
 
+      {/* Display filtered product cards by mapping them */}
+      {/* Change the number of products per row using Grid size prop */}
       <Grid container spacing={3}>
         {filteredProducts.map((product) => (
           <Grid key={product.id} size={{ xs: 12, sm: 6, md: 4 }}>
